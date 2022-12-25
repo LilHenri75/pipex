@@ -1,4 +1,4 @@
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 char *double_join(char **str, char **str2, int i)
 {
@@ -60,11 +60,11 @@ void    ft_execution(char *cmd, char **env)
     tmp = cmd;
     if (path == NULL)
         ft_printf("ERROR: no PATH variable found\n");
-    while(path[i] != NULL)
+    while(path[i])
     {
         if (cmd[0] != '/')
             tmp = double_join(path, command, i);
-        if (access(tmp, F_OK | X_OK) == 0 || access(cmd, F_OK | X_OK) == 0)
+        if (access(tmp, F_OK | X_OK) == 0 || access(cmd, F_OK | X_OK) == 0 )
         {
             execve(tmp, command, env);
             exit(EXIT_SUCCESS);
@@ -73,6 +73,33 @@ void    ft_execution(char *cmd, char **env)
             free(tmp);
         i++;
     }
+    write(1, "failure\n", 8);
     ft_bigfree(command, path);
     ft_printf("ERROR: command not found: %s\n", cmd);
+}
+
+void ft_exec_cmd(char *cmd, char **env)
+{
+    int     pipefd[2];
+    pid_t   pid;
+
+    if (pipe(pipefd) == -1)
+        ft_perror("ERROR:");
+    pid = fork();
+    if (pid == -1)
+        ft_perror("ERROR:");
+    if (pid == 0)
+    {
+        if (dup2(pipefd[0], 0) == -1)
+            ft_perror("ERROR:");
+        close(pipefd[1]);
+        waitpid(pid, NULL, 0);
+    }
+    else
+    {
+        if (dup2(pipefd[1], 1) == -1)
+            ft_perror("ERROR:");
+        close(pipefd[0]);
+        ft_execution(cmd, env);
+    }
 }

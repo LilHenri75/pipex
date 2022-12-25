@@ -13,6 +13,8 @@ void ft_pipex(int argc, char **argv, char **env)
         ft_perror("ERROR");
     if (fchild == 0)
         first_child(pipefd, argv, env);
+//    else
+//        second_child(pipefd, argv, env);
     schild = fork();
     if (schild == -1)
         ft_perror("ERROR");

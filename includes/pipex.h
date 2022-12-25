@@ -12,6 +12,8 @@
 # include <string.h>
 # include <stdarg.h>
 
+#define BUFFER_SIZE 2048
+
 //pipex
 void ft_pipex(int argc, char **argv, char **env);
 
@@ -35,7 +37,8 @@ char *ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_itoa(int n);
 void    ft_perror(char *str);
-
+void	ft_putstr_fd(char *s, int fd);
+int	ft_strcmp(const char *s1, const char *s2);
 
 //ft_printf
 int ft_print_char(int i);
