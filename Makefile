@@ -5,7 +5,7 @@ OBJS = $(patsubst %.c,%.o,$(SRCS))
 OBJS_B = $(patsubst %.c,%.o,$(BONUS))
 HEADER = -I ./includes/pipex.h
 HEADER_B = -I ./includes/pipex_bonus.h
-CC = gcc
+CC = cc
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
