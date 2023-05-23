@@ -28,6 +28,11 @@ int main(int argc, char **argv, char **env)
 {
     if (argc != 5)
         ft_printf("ERROR: wrong number of arguments\n");
-    ft_pipex(argc, argv, env);
+    if (!is_cmd_valid(argv[2], env)) 
+        ft_printf("ERROR: command not found: %s\n", argv[2]);
+    if (!is_cmd_valid(argv[3], env)) 
+        ft_printf("ERROR: command not found: %s\n", argv[3]);
+    else
+        ft_pipex(argc, argv, env);
     return (0);
 }
