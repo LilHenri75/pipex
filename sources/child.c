@@ -21,9 +21,9 @@ void    second_child(int *pipefd, char **argv, char **env)
 {
     int output;
 
-    output = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+    output = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0666);
     if (output == -1)
-        ft_printf("ERROR: no such file or directory: %s\n", argv[1]);
+        ft_printf("ERROR: no such file or directory: %s\n", argv[4]);
     if (dup2(output, 1) == -1)
         ft_perror("ERROR");
     if (dup2(pipefd[0], 0) == -1)

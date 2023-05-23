@@ -45,7 +45,7 @@ void write_to_limiter(int *pipefd, char *limiter)
 void ft_here_doc(int argc, char **argv)
 {
     int pipefd[2];
-    int child;
+    pid_t child;
 
     if (argc < 6)
         ft_printf("ERROR: wrong number of arguments\n");
