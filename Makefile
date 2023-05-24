@@ -1,5 +1,5 @@
 NAME = pipex
-SRCS = sources/child.c sources/exec.c sources/pipex.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"}
+SRCS = sources/child.c sources/exec.c sources/pipex.c sources/validation.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"}
 BONUS = sources/exec_bonus.c sources/pipex_bonus.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"} ${shell find ./sources/get_next_line -name "*.c"}
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 OBJS_B = $(patsubst %.c,%.o,$(BONUS))

@@ -6,7 +6,7 @@
 /*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 00:49:20 by hebernar          #+#    #+#             */
-/*   Updated: 2023/05/24 01:50:21 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:42:41 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ void	second_child(int *pipefd, char **argv, char **env);
 
 //exec
 int		is_cmd_valid(char *cmd, char **env);
-void	ft_bigfree(char **str, char **str2);
 void	ft_execution(char *cmd, char **env);
+
+//validation
+int		is_cmd_in_path(char **command, char **path, char *cmd, int execute);
+int		is_cmd_valid(char *cmd, char **env);
 char	**ft_path_split(char **env);
 char	*double_join(char **str, char **str2, int i);
+void	ft_bigfree(char **str, char **str2);
 
 //libft
 char	**ft_split(const char *s, char c);
