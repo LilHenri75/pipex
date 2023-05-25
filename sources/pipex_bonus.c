@@ -64,7 +64,6 @@ void ft_here_doc(int argc, char **argv)
         close(pipefd[0]);
         waitpid(child, NULL, 0);
     }
-
 }
 
 void ft_pipex(int argc, char **argv, char **env)
@@ -96,8 +95,17 @@ void ft_pipex(int argc, char **argv, char **env)
 
 int main(int argc, char **argv, char **env)
 {
+    int i;
+
+    i = 2;
     if (argc < 5)
         ft_printf("ERROR: wrong number of arguments\n");
+    while (i < argc - 1)
+    {
+        if (!is_cmd_valid(argv[i], env))
+            ft_printf("ERROR: command not found: %s\n", argv[i]);
+        i++;
+    }
     ft_pipex(argc, argv, env);
     return (0);
 }

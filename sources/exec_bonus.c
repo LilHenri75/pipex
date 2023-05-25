@@ -12,53 +12,6 @@
 
 #include "../includes/pipex_bonus.h"
 
-char	*double_join(char **str, char **str2, int i)
-{
-	char	*tmp;
-
-	tmp = ft_strjoin(str[i], "/");
-	tmp = ft_strjoin(tmp, str2[0]);
-	return (tmp);
-}
-
-void	ft_bigfree(char **str, char **str2)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	i = 0;
-	while (str2[i])
-	{
-		free(str2[i]);
-		i++;
-	}
-	free(str);
-	free(str2);
-}
-
-char	**ft_path_split(char **env)
-{
-	int		i;
-	char	**ret;
-
-	i = 0;
-	while (env[i])
-	{
-		if (ft_strncmp(env[i], "PATH=", 5) == 0)
-		{
-			ret = ft_split(env[i] + 5, ':');
-			return (ret);
-		}
-		i++;
-	}
-	return (NULL);
-}
-
 void	ft_execution(char *cmd, char **env)
 {
 	int		i;

@@ -24,8 +24,6 @@
 # include <string.h>
 # include <stdarg.h>
 
-# define BUFFER_SIZE 2048
-
 //pipex
 void	ft_pipex(int argc, char **argv, char **env);
 
