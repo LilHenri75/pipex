@@ -6,7 +6,7 @@
 /*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:14:03 by hebernar          #+#    #+#             */
-/*   Updated: 2022/05/19 15:50:20 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:46:49 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_print_uns_hexa_maj(unsigned int c)
 	return (base_count(c));
 }
 
-int ft_print_hexa(unsigned long long c)
+int	ft_print_hexa(unsigned long long c)
 {
 	write(1, "0x", 2);
 	ft_putnbr_base(c, "0123456789abcdef");

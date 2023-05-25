@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_perror.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 14:48:54 by hebernar          #+#    #+#             */
+/*   Updated: 2023/05/25 14:49:04 by hebernar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/pipex.h"
 
-void ft_perror(char *str)
+void	ft_perror(char *str)
 {
-    perror(str);
-    exit(EXIT_FAILURE);
+	perror(str);
+	exit(EXIT_FAILURE);
 }

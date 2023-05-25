@@ -6,7 +6,7 @@
 /*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:51:30 by hebernar          #+#    #+#             */
-/*   Updated: 2022/05/19 15:12:36 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:46:25 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static char	*ft_unsigned_itoa(unsigned int n)
 {
 	int			i;
 	char		*temp;
-	
-	if (n <= 4294967295 && n>= 1000000000)
+
+	if (n <= 4294967295 && n >= 1000000000)
 		i = 10;
 	else
 		i = ft_length(n);
@@ -58,12 +58,11 @@ int	ft_print_uns_dec(unsigned int c)
 
 	temp = ft_unsigned_itoa(c);
 	i = 0;
-
 	while (temp[i] != '\0')
 	{
 		write(1, &temp[i], 1);
 		i++;
 	}
 	free(temp);
-	return(i);
+	return (i);
 }

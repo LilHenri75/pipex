@@ -6,12 +6,11 @@
 /*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:59:37 by hebernar          #+#    #+#             */
-/*   Updated: 2022/05/19 13:21:25 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:43:44 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
-
 
 int	ft_argcheck(va_list *args, char c)
 {
@@ -37,15 +36,15 @@ int	ft_argcheck(va_list *args, char c)
 		write(1, "%", 1);
 		count++;
 	}
-	return(count);
+	return (count);
 }
 
-void ft_printf(const char *format, ...)
+void	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
 	int		count;
-	
+
 	i = 0;
 	count = i;
 	va_start(args, format);
@@ -59,7 +58,7 @@ void ft_printf(const char *format, ...)
 		else
 		{		
 			write(1, &format[i], 1);
-			count++;		
+			count++;
 		}
 		i++;
 	}
