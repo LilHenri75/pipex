@@ -38,16 +38,19 @@ int	is_cmd_valid(char *cmd, char **env)
 {
 	char	**command;
 	char	**path;
+	int		ret;
 
+	ret = 0;
+	path = NULL;
+	if (cmd == NULL)
+		return (ret);
 	command = ft_split(cmd, ' ');
 	path = ft_path_split(env);
-	if (!path || !is_cmd_in_path(command, path, cmd, 0))
-	{
+	if (is_cmd_in_path(command, path, cmd, 0))
+		ret = 1;
+	if (path)
 		ft_bigfree(command, path);
-		return (0);
-	}
-	ft_bigfree(command, path);
-	return (1);
+	return (ret);
 }
 
 char	*double_join(char **str, char **str2, int i)

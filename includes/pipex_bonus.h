@@ -45,7 +45,4 @@ char	*double_join(char **str, char **str2, int i);
 void	ft_bigfree(char **str, char **str2);
 char	**ft_path_split(char **env);
 
-//gnl
-char	*get_next_line(int fd);
-
 #endif

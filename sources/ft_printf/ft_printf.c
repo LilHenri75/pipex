@@ -63,5 +63,4 @@ void	ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	exit(EXIT_FAILURE);
 }

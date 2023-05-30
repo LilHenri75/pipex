@@ -6,7 +6,7 @@
 /*   By: hebernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 01:50:45 by hebernar          #+#    #+#             */
-/*   Updated: 2023/05/24 14:46:26 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:36:06 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ static int	ex_path(char **command, char **path, char *cmd, char **env)
 
 void	ft_execution(char *cmd, char **env)
 {
-	char	**command;
+	char	**com;
 	char	**path;
 
-	command = ft_split(cmd, ' ');
+	if (cmd == NULL)
+	{
+		ft_printf("ERROR: no command provided\n");
+		exit(EXIT_FAILURE);
+	}
+	com = ft_split(cmd, ' ');
 	path = ft_path_split(env);
-	if (!path)
-		ft_printf("ERROR: no PATH variable found\n");
-	else if (!ex_direct(command, cmd, env) && !ex_path(command, path, cmd, env))
+	if (!ex_direct(com, cmd, env) && path && !ex_path(com, path, cmd, env))
 		ft_printf("ERROR: command not found: %s\n", cmd);
-	ft_bigfree(command, path);
+	ft_bigfree(com, path);
 }

@@ -1,6 +1,6 @@
 NAME = pipex
 SRCS = sources/child.c sources/exec.c sources/pipex.c sources/validation.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"}
-BONUS = sources/exec_bonus.c sources/pipex_bonus.c sources/validation_bonus.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"} ${shell find ./sources/get_next_line -name "*.c"}
+BONUS = sources/exec_bonus.c sources/pipex_bonus.c sources/validation_bonus.c ${shell find ./sources/libft -name "*.c"} ${shell find ./sources/ft_printf -name "*.c"}
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 OBJS_B = $(patsubst %.c,%.o,$(BONUS))
 HEADER = -I ./includes/pipex.h
